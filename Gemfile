@@ -59,3 +59,5 @@ gem 'activeadmin', '2.12.0'
 gem 'devise'
 
 gem 'arctic_admin'
+
+gem 'active_admin_role'
