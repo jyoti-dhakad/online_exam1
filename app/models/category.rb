@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
 
     has_many :questions, dependent: :destroy
+    has_many :exams, dependent: :destroy
     
     enum name: {
     'php coding'=> 'php coding',
