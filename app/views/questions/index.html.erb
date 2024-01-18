@@ -1,0 +1,35 @@
+<section class="vh-200 bg-image d-flex align-items-center"
+  
+  
+  <div class="mask gradient-custom-3">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-10">
+            <h1>Questions</h1>
+
+            <% if @questions %>
+              <% @questions.each_with_index do |question, index| %>
+                <div>
+                  <p><strong><%= index + 1 %>:</strong> <%= question.text %></p>
+                  
+                  <%= form_with(model: Answer.new, url: answers_path, method: :post) do |form| %>
+                    <%= form.hidden_field :question_id, value: question.id %>
+                    <%= form.hidden_field :category_id, value: question.category_id %>
+                    <%= form.label :text, "Your Answer" %>
+                    <%= form.text_area :text %>
+                    <%= form.submit "Submit Answer" %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <p>No questions found.</p>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

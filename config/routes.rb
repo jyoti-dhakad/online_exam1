@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  resources :answers
+
+  resources :categories do
+    resources :questions
+  end
+  resources :questions
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   devise_for :users, controllers: {

@@ -11,6 +11,9 @@
         <li class="nav-item">
           <%= link_to 'Home', root_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Questions', categories_path, class: "nav-link" %>
+        </li>
 
         <% if user_signed_in? %>
           <li class="nav-item">
